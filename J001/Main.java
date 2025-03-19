@@ -9,7 +9,7 @@ public class Main{
     public void J001(){ 
         int height, weight; 
         double bmi; 
-
+        
         Scanner n = new Scanner(System.in); 
         height = n.nextInt();
         weight = n.nextInt(); 
