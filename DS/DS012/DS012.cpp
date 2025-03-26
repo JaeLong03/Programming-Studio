@@ -1,20 +1,45 @@
 #include <iostream> 
-#include <string> 
-#include <algorithm> 
 using namespace std; 
 
 struct product{ 
-    string name; 
+    char name[100]; 
     int price; 
-    string publisher; 
+    char publisher[100]; 
 }; 
 
 
-bool strComp(string a, string b) {
-    string lowerA = a, lowerB = b;
-    transform(lowerA.begin(), lowerA.end(), lowerA.begin(), ::tolower);
-    transform(lowerB.begin(), lowerB.end(), lowerB.begin(), ::tolower);
-    return lowerA == lowerB;
+bool strComp(char a[], char b[]) {
+    char a1[100]; 
+    char b1[100]; 
+    int i;  
+    for (i = 0; a[i] != '\0'; i++) { 
+        if (a[i] >= 'a' && a[i] <= 'z') { 
+            a1[i] = a[i] - 32;
+        }
+        else{ 
+            a1[i] = a[i]; 
+        }
+    }
+    a1[i] = '\0';
+
+
+    for (i = 0; a[i] != '\0'; i++) { 
+        if (b[i] >= 'a' && b[i] <= 'z') { 
+            b1[i] = b[i] - 32;
+        }
+        else{ 
+            b1[i] = b[i];
+        }
+    }
+    b1[i] = '\0';
+
+    cout << a1 << b1 << endl;
+
+    for(i = 0; a1[i] != '\0'; i++){ 
+        if(a1[i] != b1[i])
+            return false; 
+    }
+    return true; 
 }
 
 int main(){ 
