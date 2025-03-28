@@ -33,7 +33,7 @@ bool strComp(char a[], char b[]) {
     }
     b1[i] = '\0';
 
-    cout << a1 << b1 << endl;
+    //cout << a1 << b1 << endl;
 
     for(i = 0; a1[i] != '\0'; i++){ 
         if(a1[i] != b1[i])
@@ -44,7 +44,7 @@ bool strComp(char a[], char b[]) {
 
 int main(){ 
 
-    product *arr = new struct product[2]; 
+    product *arr = new product[2]; 
     int i; 
 
     for(i = 0; i < 2; i++){ 
@@ -61,6 +61,7 @@ int main(){
         cout << arr[0].name << " is equal."; 
     }
 
+    delete[] arr; 
 
     return 0; 
 }

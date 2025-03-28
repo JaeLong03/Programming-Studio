@@ -18,9 +18,12 @@ void displayMenu(Cafe &r1);
 
 int main(){ 
 
-    struct Cafe *cf; 
+    Cafe *cf = new Cafe;
     addCafe(*cf); 
     displayMenu(*cf); 
+
+    delete[] cf->list; 
+    delete cf;
 
     return 0; 
 }
@@ -30,7 +33,7 @@ void addCafe(Cafe &r1){
     cin >> r1.menu_Num; 
 
     r1.list = new Menu[r1.menu_Num]; 
-    for(int i; i < r1.menu_Num; i++){ 
+    for(int i=0; i < r1.menu_Num; i++){ 
         addMenu(r1.list[i]); 
     }
 }
