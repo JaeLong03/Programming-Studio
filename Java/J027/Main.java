@@ -23,7 +23,7 @@ class Main {
 
         System.out.print("Overweight person - "); 
         for(i = 0; i < 10; i++){ 
-            if(bmi[i] > 25){ 
+            if(bmi[i] >= 25){ 
                 System.out.print(i+1 + " "); 
                 count++;
             }
