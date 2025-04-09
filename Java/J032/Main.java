@@ -18,5 +18,6 @@ class Main {
         }
 
         System.out.println(reverse); 
+        in.close(); 
     }
 }
