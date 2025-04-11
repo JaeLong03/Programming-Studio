@@ -2,21 +2,23 @@
 #include <iostream>
 using namespace std;
 
-void MyStackInt:: initialize(){ 
-    top = -1; 
-} 
 
-MyStackInt::MyStackInt(int size) { 
-    S = new int[size]; // creating the size of the Stack in memory 
+void CouponStack:: initialize(){ 
+    size = 0; 
+    top = -1; 
+}
+
+CouponStack:: CouponStack(int size) { 
+    S= new struct Coupon[size]; // creating the size of the Stack in memory 
     this->size = size; 
     top = -1; // intially set top of the Stack as -1;
 }
 
-MyStackInt::~MyStackInt() {
+CouponStack::~CouponStack() {
     delete[] S; // free the memory 
 }
 
-void MyStackInt::push(int x) {
+void CouponStack::push(struct Coupon &x) {
     if (isFull()) { 
         cout << "Stack Overflow!" << endl; 
     }
@@ -26,8 +28,8 @@ void MyStackInt::push(int x) {
     }
 }
 
-int* MyStackInt::pop() { 
-    int *x = S; 
+struct Coupon* CouponStack::pop() { 
+    struct Coupon *x = S; 
     if (isEmpty()) { 
         cout << "Stack Underflow!" << endl; 
     }
@@ -38,29 +40,35 @@ int* MyStackInt::pop() {
     return x;
 }
 
-bool MyStackInt::isFull() { 
+bool CouponStack::isFull() { 
     if (top == size - 1) { 
         return true;
     }
     return false;
 }
 
-bool MyStackInt::isEmpty() {
+bool CouponStack::isEmpty() {
     if (top == -1) {
         return true;
     }
     return false;
 }
 
-void MyStackInt::display() { 
+void CouponStack:: print(){ 
     for (int i = top; i >= 0; i--) {
-        cout << S[i] << endl;
+        struct Coupon *s; 
+        s = new Coupon; 
+        s = &S[i]; 
+        cout << s->rank << "등 - " << s->name << endl; 
     }
 }
 
-int MyStackInt::stackTop() {
-    if (isEmpty()) {
-        return -1;
+void CouponStack:: rprint() { 
+    for (int i = top; i >= 0; i--) {
+        struct Coupon *s; 
+        s = new Coupon; 
+        s = &S[i]; 
+        cout << s->rank << "등 - " << s->name << endl;
+        delete &S[i]; 
     }
-    return S[top];
 }

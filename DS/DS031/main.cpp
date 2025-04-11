@@ -7,21 +7,21 @@ int main() {
     string input; 
     cin >>size; 
 
-    MyStackInt a(size);
+    MyStackInt *a = new MyStackInt(size); 
     cin.ignore(); 
 
     while(true){ 
         getline(cin, input); 
         
         if (input.substr(0,4) == "push") {
-            a.push(stoi(input.substr(5)));
+            a->push(stoi(input.substr(5)));
         } else if (input == "pop") {
-            a.pop();
+            a->pop();
         } else if(input == "print") {
-            if(a.isEmpty())
+            if(a->isEmpty())
                 cout << "Stack is empty"; 
             else
-                a.display(); 
+                a->display(); 
             break;
         }
     }

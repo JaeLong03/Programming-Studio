@@ -1,38 +1,43 @@
 #include "stackInt.h"
 #include <iostream>
 using namespace std;
+#define MAX 100
 
-void MyStackInt:: initialize(){ 
-    top = -1; 
-} 
-
-MyStackInt::MyStackInt(int size) { 
-    S = new int[size]; // creating the size of the Stack in memory 
-    this->size = size; 
+MyStackInt::MyStackInt() { 
+    name = new string[MAX]; 
+    gpa = 0.0; 
     top = -1; // intially set top of the Stack as -1;
 }
 
 MyStackInt::~MyStackInt() {
-    delete[] S; // free the memory 
+    delete[] name; // free the memory 
 }
 
-void MyStackInt::push(int x) {
+double MyStackInt:: getGpa(){ 
+    return gpa; 
+}
+
+void MyStackInt:: setGpa(double num){ 
+    gpa = num; 
+}
+
+void MyStackInt:: push(string s) {
     if (isFull()) { 
         cout << "Stack Overflow!" << endl; 
     }
     else {  
         top++; // increment top 
-        S[top] = x; // and push the element to Stack 
+        name[top] = s; // and push the element to Stack 
     }
 }
 
-int* MyStackInt::pop() { 
-    int *x = S; 
+string* MyStackInt::pop() { 
+    string *x = name;  
     if (isEmpty()) { 
         cout << "Stack Underflow!" << endl; 
     }
     else {
-        x = &S[top]; // take out the element 
+        x = &name[top]; // take out the element 
         top--; // and decreament the size of the Stack 
     }
     return x;
@@ -53,8 +58,9 @@ bool MyStackInt::isEmpty() {
 }
 
 void MyStackInt::display() { 
+    cout << "Top GPA: " << gpa << endl; 
     for (int i = top; i >= 0; i--) {
-        cout << S[i] << endl;
+        cout << name[i] << endl;
     }
 }
 
@@ -62,5 +68,6 @@ int MyStackInt::stackTop() {
     if (isEmpty()) {
         return -1;
     }
-    return S[top];
+    cout << name[top]; 
+    return 1;
 }

@@ -5,13 +5,15 @@ class MyStackInt {
 private: 
     int size;   // size of the Stack
     int top;    // index of top element
-    int* S;     // Stack Pointer (int array) 
+    double gpa; 
+    string *name; 
 public:
-    void initialize(); 
-    MyStackInt(int size);    // constructor to make the Stack with size 
+    MyStackInt();    // constructor to make the Stack with size 
     ~MyStackInt();           // Destructor to remove from memory 
-    void push(int x);   // push function for inserting an element at the top of Stack
-    int* pop();          // pop function for deleting the topmost element
+    double getGpa();
+    void setGpa(double num);
+    void push(string s);   // push function for inserting an element at the top of Stack
+    string* pop();          // pop function for deleting the topmost element
     bool isFull();       // check either the Stack is full or not
     bool isEmpty();      // check either Stack is empty or not
     void display();     // function for displaying the Stack 
