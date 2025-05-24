@@ -69,9 +69,11 @@ int main() {
 
     TreeNode* root = buildTree(arr, num);
     if(choice == 1){
+        cout << "preorder traversal: "; 
         printPreOrderTree(root); 
     }
     else if(choice == 2){ 
+        cout << "postorder traversal: "; 
         printPostOrderTree(root); 
     }
     cout << endl; 
